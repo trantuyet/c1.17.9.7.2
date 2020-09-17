@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>làm máy tính đơn giản</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td colspan="4"><input id="result"/> </td>
+    </tr>
+    <tr>
+        <td>
+            <button id="1" giatricuatoi ="1" onclick ="inputdata(this)">1</button>
+        </td>
+        <td>
+            <button id="2" onclick ="inputdata(this)">2</button>
+        </td>
+        <td>
+            <button id="3" onclick ="inputdata(this)">3</button>
+        </td>
+        <td>
+            <button id="+" onclick ="inputOperation(this)">+</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button id="4" onclick ="inputdata(this)">4</button>
+        </td>
+        <td>
+            <button id="5" onclick ="inputdata(this)">5</button>
+        </td>
+        <td>
+            <button id="6" onclick ="inputdata(this)">6</button>
+        </td>
+        <td>
+            <button id="-" onclick ="inputOperation(this)">-</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button id="7" onclick ="inputdata(this)">7</button>
+        </td>
+        <td>
+            <button id="8" onclick ="inputdata(this)">8</button>
+        </td>
+        <td>
+            <button id="9" onclick ="inputdata(this)">9</button>
+        </td>
+        <td>
+            <button id="*" onclick ="inputOperation(this)">*</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button id="C" onclick ="clearData()">C</button>
+        </td>
+        <td>
+            <button id="0" onclick ="inputdata(this)">0</button>
+        </td>
+        <td>
+            <button id="=" onclick="getResult()" >=</button>
+        </td>
+        <td>
+            <button id="/" onclick ="inputOperation(this)">/</button>
+        </td>
+    </tr>
+</table>
+<script>
+    function inputdata(element) {
+        let data = element.innerHTML;
+        let oldData = document.getElementById("result").value;
+        let newData = oldData + data;
+        document.getElementById("result").value = newData;
+    }
+    function getResult() {
+        let result = document.getElementById("result").value;
+        let ketqua = eval( result);
+        document.getElementById("result").value = ketqua;
+    }
+    function clearData() {
+        document.getElementById("result").value = "";
+    }
+    function inputOperation(element) {
+        let data = element.innerHTML;
+        let oldData = document.getElementById("result").value;
+        let charEnd = oldData[oldData.length -1];
+        if (charEnd =="/"){
+            alert("mời nhập kí tự khác")
+        }
+        else {
+            let newData = oldData + data;
+            document.getElementById("result").value = newData;
+        }
+
+    }
+</script>
+</body>
+</html>
